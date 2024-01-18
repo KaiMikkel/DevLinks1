@@ -78,7 +78,6 @@ body * {
 }
 
 /*Switch*/
-
 #switch {
   position: relative;
   width: 64px;
@@ -93,12 +92,18 @@ body * {
   border: 0;
   border-radius: 50%;
 
-  left: 0;
   position: absolute;
   top: 50%;
-
+  left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.3s;
+}
+.light #switch button {
+  right: 0;
+  left: initial;
+  animation: slide-in 0.3s forwards;
 }
 
 #switch span {
@@ -115,13 +120,11 @@ body * {
   border-radius: 9999px;
 }
 
-.light #switch button {
-  right: 0;
-  left: initial;
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 /*Link de Listas*/
-
 ul {
   /*Função para definir o estilo da lista. Nesse caso abaixo, definimos
     o estilo como 'none', que significa 'nenhum'. Com isso, ele não
@@ -208,5 +211,23 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
