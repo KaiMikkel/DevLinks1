@@ -1,0 +1,212 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body {
+    /*Adiciona o fundo como imagem. Url serve para indicar o caminho 
+    da pasta localizada a imagem 
+    "background-image: url(./assets/bg-mobile.jpg);"
+    
+    /*Por padrão, a imagem se repete e para quebrar esse padrão
+    usamos: no-repeat; 
+    "background-repeat: no-repeat;"
+
+    /*Posicionamento do fundo. Foi ajustada para centralizar ao topo
+    "background-position: top center;"
+
+    /*Ajusta o tamanho da imagem de fundo. Aqui foi colocado o
+    cover = cobrir a tela toda 
+    "background-size: cover;"
+*/
+        /* Agrupamento dos backgrounds para código + limpo*
+        background: color(caso sendo usado) image repeat position/size */
+    
+    background:var(--bg-url) no-repeat top center/cover;       
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color:rgba(255,255,255,0.5);
+    --surface-color: rgba(255,255,255,0.05);
+    --surface-color-hover:rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255,255,255,0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+ 
+}
+
+
+.light{
+    --text-color:black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color:rgba(0,0,0,0.5);
+    --surface-color:rgba(0,0,0,0.05);
+    --surface-color-hover:rgba(0,0,0,0.02);
+    --highlight-color:rgba(0,0,0,0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 100%;
+    max-width: 588px;
+    height: 712px;
+    margin:56px auto 0px;
+    padding: 0 2px;
+
+    /* border: largura/ estilo de borda/ cor
+    border:1px solid red; */
+}
+
+
+/*Profile*/
+#profile {
+    text-align: center;
+}
+
+#profile img {
+    width: 112px;
+
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/*Switch*/
+
+#switch{
+    position: relative;
+    width:64px;
+
+    margin: 4px auto;
+
+}
+
+#switch button{
+    width:32px;
+    height:32px;
+    background: #ffffff var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    left: 0;
+    position: absolute;
+    top:50%;
+  
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+#switch span{
+    display: block;
+    width:64px;
+    height:24px;
+    /*surface-color-dark-mode*/
+    background: var(--surface-color);
+
+    /*stroke-color-dark-mode*/
+    border: 1px solid var(--stroke-color);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    
+    
+}
+
+.light #switch button {
+    right:0;
+    left: initial;
+}
+
+/*Link de Listas*/
+
+ul{
+    /*Função para definir o estilo da lista. Nesse caso abaixo, definimos
+    o estilo como 'none', que significa 'nenhum'. Com isso, ele não
+    terá o ponto (•) como marcação. */
+    list-style: none;
+
+    /*O display: flex irá deixar o conteúdo até o limite de espaço da tela*/
+    display: flex;
+
+    /*Coloca as listas como coluna, não como linhas*/
+    flex-direction: column;
+
+    /*Funciona dando espaço ENTRE esses elementos (listas).*/
+    gap:16px;
+
+    padding:24px 0;
+}
+
+/*O 'a' seria uma lista  */
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:16px 24px;
+
+    background:var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+
+    /*Irá tirar o undeline que fica abaixo do texto*/
+    text-decoration: none;
+
+    /*Define o peso da fonte, nesse projeto será usado o peso 500*/
+    font-weight: 500;
+
+    transition: all 0.2s;
+}
+
+/*O hover é uma função para quando se passa o mouse por cima do conteúdo*/
+ul li a:hover{
+    background:var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+
+}
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    /*O padding serve para dar espaçamento em cima, baixo e lados*/
+    padding:24px 0;
+
+    font-size:24px;
+}
+
+#social-links a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover{
+    background:var(--highlight-color);
+   
+}
+
+footer{
+    padding:24px 0;
+    text-align:center;
+
+    font-size: 16px;
+}
